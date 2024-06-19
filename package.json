@@ -1,0 +1,57 @@
+{
+  "name": "shadowizer",
+  "version": "0.0.0",
+  "description": "A cli tool for adding box shadow to images",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "bin": {
+    "shadow": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "image",
+    "shadow"
+  ],
+  "author": "Alex Wei",
+  "repository": "alex8088/shadowizer",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js,.cjs,.mjs,.ts,.cts,.mts src/**",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run lint && rollup -c rollup.config.ts --configPlugin typescript"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^18.19.36",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.3.2",
+    "rollup": "^4.18.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-rm": "^1.0.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.53",
+    "cac": "^6.7.14",
+    "fast-glob": "^3.3.2",
+    "picocolors": "^1.0.1"
+  }
+}
