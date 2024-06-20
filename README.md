@@ -33,13 +33,13 @@ It should be noted that all images with added shadows will be output in `png` fo
 
 > Why not other output formats such as `jpeg`, because png supports transparency.
 
-| Options                | Description                                                                |
-| ---------------------- | :------------------------------------------------------------------------- |
-| `-f, --files`          | specify png images, support glob patterns, default: \*.{png,jpg,jpeg,webp} |
-| `-c, --shadowColor`    | set shadow color, default: `#00000073`                                     |
-| `-b, --shadowBlur`     | set shadow blur, default: `25`                                             |
-| `-x, --shadowOffsetX`  | set shadow offset x, default: `0`                                          |
-| `-y, --shadowOffsetY ` | set shadow offset y, default: `0`                                          |
+| Options                | Description                                                                  |
+| ---------------------- | :--------------------------------------------------------------------------- |
+| `-f, --files`          | specify png images, support glob patterns, default: `\*.{png,jpg,jpeg,webp}` |
+| `-c, --shadowColor`    | set shadow color, default: `#00000073`                                       |
+| `-b, --shadowBlur`     | set shadow blur, default: `25`                                               |
+| `-x, --shadowOffsetX`  | set shadow offset x, default: `0`                                            |
+| `-y, --shadowOffsetY ` | set shadow offset y, default: `0`                                            |
 
 Example：
 
