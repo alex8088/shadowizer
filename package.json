@@ -13,7 +13,7 @@
     }
   },
   "bin": {
-    "shadow": "dist/cli.js"
+    "shadowizer": "dist/cli.js"
   },
   "files": [
     "dist"
