@@ -26,7 +26,10 @@ type CLIOptions = {
   shadowOffsetY?: number
 }
 
-cli.option('-f, --files [...files]', `[string[]] specify images, support glob`)
+cli.option(
+  '-f, --files [...files]',
+  `[string[]] specify images, support glob patterns, default: *.{png,jpg,jpeg,webp}`
+)
 cli.option(
   '-c, --shadowColor <shadowColor>',
   `[string] set shadow color, default: #00000073`
@@ -58,6 +61,15 @@ cli
       cwd: dir
     })
 
+    if (images.length === 0) {
+      console.log()
+      console.log(
+        colors.bold(`${colors.green('✓')}  Found ${colors.cyan(0)} images`)
+      )
+      console.log()
+      return
+    }
+
     const shadowOptions: ShadowOptions = {
       color: shadowColor,
       blur: shadowBlur,
@@ -65,7 +77,7 @@ cli
       offsetY: shadowOffsetY
     }
 
-    const outDir = join(dir, `shadow-image-${+new Date()}`)
+    const outDir = join(dir, `shadowizer-${+new Date()}`)
     await fs.mkdir(outDir)
 
     console.log()
@@ -85,7 +97,7 @@ cli
           added += 1
         } else {
           console.log(
-            `${colors.cyan('●')}  ${image} > ${colors.yellow('Non-image')}\n`
+            `${colors.cyan('●')}  ${image} > ${colors.yellow('Not an image')}\n`
           )
         }
       } catch (err) {
