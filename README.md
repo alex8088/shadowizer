@@ -12,41 +12,48 @@
 <p align='center'><b>Before</b></p>
 
 <p align='center'>
-<img src='./screenshots/before.png'/>
+<img src='./screenshots/before.jpg' width="364"/>
 </p>
 
 <p align='center'><b>After</b></p>
 
 <p align='center'>
-<img src='./screenshots/after.png'/>
+<img src='./screenshots/after.png' width="394"/>
 </p>
 
 ## Usage
 
-See `shadowizer --help` for more details
+See `shadowizer --help` for more details.
 
 ### shadowizer [root]
 
 Find images and add box shadow to them. You can specify the root directory, which can be an absolute path, or a path relative to the current working directory. Default to `process.cwd()`.
 
-| Options                | Description                            |
-| ---------------------- | :------------------------------------- |
-| `-f, --files`          | specify images                         |
-| `-c, --shadowColor`    | set shadow color, default: `#00000073` |
-| `-b, --shadowBlur`     | set shadow blur, default: `25`         |
-| `-x, --shadowOffsetX`  | set shadow offset x, default: `0`      |
-| `-y, --shadowOffsetY ` | set shadow offset y, default: `0`      |
+It should be noted that all images with added shadows will be output in `png` format to the `shadowizer-{timestamp}` directory in the root directory.
+
+> Why not other output formats such as `jpeg`, because png supports transparency.
+
+| Options                | Description                                                                |
+| ---------------------- | :------------------------------------------------------------------------- |
+| `-f, --files`          | specify png images, support glob patterns, default: \*.{png,jpg,jpeg,webp} |
+| `-c, --shadowColor`    | set shadow color, default: `#00000073`                                     |
+| `-b, --shadowBlur`     | set shadow blur, default: `25`                                             |
+| `-x, --shadowOffsetX`  | set shadow offset x, default: `0`                                          |
+| `-y, --shadowOffsetY ` | set shadow offset y, default: `0`                                          |
 
 Example：
 
 ```sh
-# Specify multiple images
+# specify directory to find png images
+shadowizer path/to
+
+# specify multiple images
 shadowizer -f text.png -f fun.png
 
-# Specify images using glob
+# specify images with glob patterns
 shadowizer -f *.png
 
-# Specify shadow color
+# set shadow color
 shadowizer -c #00000073
 ```
 
