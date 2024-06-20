@@ -23,9 +23,9 @@ export async function addShadow(
 
   const shadowAreaSize = maxSize + margin
 
-  const ext = extname(imagePath).replace('.', '').replace('jpg', 'jpeg')
+  const ext = extname(imagePath).replace('.', '')
 
-  if (ext === 'png' || ext === 'jpeg' || ext === 'webp') {
+  if (ext === 'png' || ext === 'jpg' || ext === 'jpeg' || ext === 'webp') {
     const image = await loadImage(imagePath)
 
     const { height, width } = image
@@ -47,7 +47,7 @@ export async function addShadow(
 
     ctx.drawImage(image, dx, dy, width, height)
 
-    return ext === 'png' ? canvas.encode(ext) : canvas.encode(ext)
+    return canvas.encode('png')
   }
 }
 
@@ -59,7 +59,10 @@ export async function saveShadowImage(
   const buffer = await addShadow(imagePath, shadow)
 
   if (buffer) {
-    await fs.writeFile(join(outDir, basename(imagePath)), buffer)
+    await fs.writeFile(
+      join(outDir, basename(imagePath, extname(imagePath)) + '.png'),
+      buffer
+    )
     return true
   }
 
