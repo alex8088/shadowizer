@@ -35,7 +35,7 @@ It should be noted that all images with added shadows will be output in `png` fo
 
 | Options                | Description                                                                  |
 | ---------------------- | :--------------------------------------------------------------------------- |
-| `-f, --files`          | specify png images, support glob patterns, default: `\*.{png,jpg,jpeg,webp}` |
+| `-f, --files`          | specify images, support glob patterns, default: `\*.{png,jpg,jpeg,webp}` |
 | `-c, --shadowColor`    | set shadow color, default: `#00000073`                                       |
 | `-b, --shadowBlur`     | set shadow blur, default: `25`                                               |
 | `-x, --shadowOffsetX`  | set shadow offset x, default: `0`                                            |
@@ -44,7 +44,7 @@ It should be noted that all images with added shadows will be output in `png` fo
 Example：
 
 ```sh
-# specify directory to find png images
+# specify directory to find images
 shadowizer path/to
 
 # specify multiple images
